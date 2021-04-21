@@ -2,6 +2,9 @@
 
 @push('styles')
     <style type="text/css">
+        #users > li {
+            cursor: pointer;
+        }
     </style>
 @endpush
 
@@ -22,8 +25,6 @@
                                             class="list-unstyled overflow-auto"
                                             style="height: 45vh"
                                         >
-                                            <li>Test1: Hello</li>
-                                            <li>Test2: Hi there</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -64,6 +65,7 @@
                 users.forEach((user, index) => {
                     let element = document.createElement('li');
                     element.setAttribute('id', user.id);
+                    element.setAttribute('onclick', 'greetUser("' + user.id +'")');
                     element.innerText = user.name;
                     usersElement.appendChild(element);
                 });
@@ -71,6 +73,7 @@
             .joining((user) => {
                 let element = document.createElement('li');
                 element.setAttribute('id', user.id);
+                element.setAttribute('onclick','greetUser("' + user.id +'")');
                 element.innerText = user.name;
                 usersElement.appendChild(element);
             })
@@ -85,6 +88,12 @@
             })
 
         ;
+    </script>
+    <script>
+        function greetUser(id)
+        {
+            window.axios.post('/chat/greet/' + id);
+        }
     </script>
 
     <script>
