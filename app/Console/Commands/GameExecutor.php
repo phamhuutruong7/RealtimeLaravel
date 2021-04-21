@@ -23,21 +23,11 @@ class GameExecutor extends Command
     protected $description = 'Start executing the game';
     private $time = 15;
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
     }
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle()
     {
         while (true) {

@@ -22,7 +22,6 @@ class WinnerNumberGenerated implements ShouldBroadcast
         $this->number = $number;
     }
 
-
     public function broadcastOn()
     {
         Log::debug("Number: {$this->number}");
