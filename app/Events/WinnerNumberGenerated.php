@@ -9,6 +9,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class WinnerNumberGenerated
 {
@@ -24,6 +25,7 @@ class WinnerNumberGenerated
 
     public function broadcastOn()
     {
+        Log::debug("Number: {$this->number}");
         return new Channel('game');
     }
 }
